@@ -94,6 +94,7 @@ const SearchParams = () => {
                 name={pet.name}
                 breed={pet.breed}
                 img={pet.images}
+                id={pet.id}
               />
             );
           })
