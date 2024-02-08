@@ -4,18 +4,23 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import SearchParams from "./components/SearchForm";
 import Details from "./components/Details";
 import NotFound from "./components/notfound";
-
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./App.css";
+import MyRouts from "./routes/Roter";
 
+const queryClient = new QueryClient();
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/details/:id" element={<Details />} />
-        <Route path="/" element={<SearchParams />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+    <>
+ <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <header>
+          <Link to="/">Adopt Me!</Link>
+        </header>
+        <MyRouts/>
+      </QueryClientProvider>
     </BrowserRouter>
+    </>
   );
 }
 
